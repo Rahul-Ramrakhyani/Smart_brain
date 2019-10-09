@@ -1,0 +1,6 @@
+.Tilt{
+ background: linear-gradient(to right, rgb(235, 39, 225), rgb(47, 223, 215));
+ top: 0;
+ margin-top: 0.8%;
+ position: absolute;
+}
