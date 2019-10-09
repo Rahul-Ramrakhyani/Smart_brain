@@ -15,7 +15,7 @@ const particlesOptions = {
      value: 200,
      density: {
       enable: true,
-      value_area: 800
+      value_area: 1500
    }
   },
       "color": {
@@ -65,7 +65,7 @@ const particlesOptions = {
     },
     "move": {
       "enable": true,
-      "speed":8,
+      "speed":5,
       "direction": "none",
       "random": false,
       "straight": false,
