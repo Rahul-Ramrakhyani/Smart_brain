@@ -84,7 +84,7 @@ const initialState =
 {
       input:'',
       imageUrl:'',
-      box:{},
+      box:[],
       route:'signin',
       isSignedIn:false,
       user:{
@@ -112,16 +112,25 @@ loadUser = (data) => {
 }
   
   calculateFaceLocation = (data) => {
-    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
+
     const image = document.getElementById('inputimage') 
     const width = Number(image.width);
     const height = Number(image.height);
-    return {
-      leftCol: clarifaiFace.left_col *width,
-      topRow: clarifaiFace.top_row *height,
-      rightCol: width - (clarifaiFace.right_col *width),
-      bottomRow: height - (clarifaiFace.bottom_row *height)
-    } 
+
+    const clarifaiFaces = data.outputs[0].data.regions;
+    const facesArray = []
+    clarifaiFaces.forEach((element)=>{
+      const clarifaiFace = element.region_info.bounding_box;
+      facesArray.push({
+      leftCol: clarifaiFace.left_col * width,
+      topRow: clarifaiFace.top_row * height,
+      rightCol: width - (clarifaiFace.right_col * width),
+      bottomRow: height - (clarifaiFace.bottom_row * height)
+      })
+    })
+
+    return facesArray;
+
   }
 
   displayFaceBox = (box) => {
@@ -151,6 +160,7 @@ loadUser = (data) => {
           id:this.state.user.id
         })
       })
+
        .then(response => response.json())
        .then(count => { 
         this.setState(Object.assign(this.state.user, {entries: count}))
