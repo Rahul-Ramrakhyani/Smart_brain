@@ -26,3 +26,6 @@ footer{
     letter-spacing: 0.1em;
     font-size: 80%;
 }
+a { color: inherit; 
+    text-decoration: none;
+} 
