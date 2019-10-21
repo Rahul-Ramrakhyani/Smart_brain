@@ -2,7 +2,7 @@
   "name": "facerecognition",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rahul-ramrakhyani.github.io/Smart_brain/"
+  "homepage": "https://rahul-ramrakhyani.github.io/Smart_brain/",
   "dependencies": {
     "express": "^4.17.1",
     "gh-pages": "^2.1.1",
